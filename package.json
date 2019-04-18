@@ -1,0 +1,26 @@
+{
+  "name": "callbag-merge-all",
+  "version": "1.0.0",
+  "description": "Callbag operator that merges all items a source of sources into a single output source",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mperktold/callbag-merge-all.git"
+  },
+  "keywords": [
+    "callbag"
+  ],
+  "author": "Matthias Perktold",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mperktold/callbag-merge-all/issues"
+  },
+  "homepage": "https://github.com/mperktold/callbag-merge-all#readme",
+  "devDependencies": {
+    "tape": "^4.9.0",
+    "callbag-basics": "^2.0.1"
+  }
+}
