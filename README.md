@@ -77,5 +77,5 @@ const output = pipe(
 output(0, (t, d) => {
   if (t === 0) d(1);
   if (t === 1) console.log(d);      // Logs 1a, 1b, 2a, 2b
-}
+});
 ```
