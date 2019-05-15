@@ -14,11 +14,11 @@ source. More on this [later](#details).
 ## Usage:
 
 ```js
-const mergeAll = require('callbag-merge-all');
-const fromIter = require('callbag-from-iter');
-const of = require('callbag-of');
-const pipe = require('callbag-pipe');
-const map = require('callbag-map');
+const mergeAll   = require('callbag-merge-all');
+const fromIter   = require('callbag-from-iter');
+const of         = require('callbag-of');
+const pipe       = require('callbag-pipe');
+const map        = require('callbag-map');
 const toIterable = require('callbag-to-iterable');
 
 // Pullable sources
@@ -66,16 +66,16 @@ deferring them for a while.
 
 ```javascript
 
-const tapUp = require('callbag-tap-up');
+const tapUp   = require('callbag-tap-up');
+const pull    = require('callbag-pull');
+const observe = require('callbag-observe');
 
 const output = pipe(
-  fromIterable([1, 2]),
+  fromIter([1, 2]),
   map(i => of(`${i}a`, `${i}b`)),
   tapUp(msg => console.log(msg)),   // Logs undefined, NO_INNER_SOURCES, NO_INNER_SOURCES
-  mergeAll
+  mergeAll,
+  pull(1),
+  observe(x => console.log(x))      // Logs 1a, 1b, 2a, 2b
 );
-output(0, (t, d) => {
-  if (t === 0) d(1);
-  if (t === 1) console.log(d);      // Logs 1a, 1b, 2a, 2b
-});
 ```
